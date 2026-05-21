@@ -13,6 +13,15 @@
         xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
         xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface">
 
-  <xacro:include filename="$(find talos_description)/urdf/arm/arm_specifics_v2.urdf.xacro" />
-  <xacro:include filename="$(find talos_description)/urdf/talos_full_common.urdf.xacro" />
+  <xacro:arg name="root" default="$(find talos_description)" />
+  <xacro:property name="ROOT" value="$(arg root)" />
+  <xacro:arg name="pal_urdf_utils_root" default="${ROOT}/../../pal_urdf_utils" />
+  <xacro:property name="PAL_URDF_UTILS_ROOT" value="$(arg pal_urdf_utils_root)" />
+  <xacro:arg name="talos_description_inertial_root" default="${ROOT}/../talos_description_inertial" />
+  <xacro:property name="TALOS_DESCRIPTION_INERTIAL_ROOT" value="$(arg talos_description_inertial_root)" />
+  <xacro:arg name="talos_description_calibration_root" default="${ROOT}/../talos_description_calibration" />
+  <xacro:property name="TALOS_DESCRIPTION_CALIBRATION_ROOT" value="$(arg talos_description_calibration_root)" />
+
+  <xacro:include filename="${ROOT}/urdf/arm/arm_specifics_v2.urdf.xacro" />
+  <xacro:include filename="${ROOT}/urdf/talos_full_common.urdf.xacro" />
 </robot>

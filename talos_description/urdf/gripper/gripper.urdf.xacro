@@ -2,7 +2,7 @@
 
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:include filename="$(find pal_urdf_utils)/urdf/deg_to_rad.urdf.xacro" />
+  <xacro:include filename="${PAL_URDF_UTILS_ROOT}/urdf/deg_to_rad.urdf.xacro" />
 
   <xacro:macro name="talos_gripper" params="name parent reflect">
 
@@ -30,7 +30,7 @@
               <visual>
                 <origin xyz="0 0 0" rpy="0 0 0" />
                 <geometry>
-                  <mesh filename="package://talos_description/meshes/gripper/base_link.STL" scale="1 1 1"/>
+                  <mesh filename="${MESH_PATH}/gripper/base_link.STL" scale="1 1 1"/>
                 </geometry>
                 <material name="DarkGrey"/>
               </visual>
@@ -42,7 +42,7 @@
                 <collision>
                   <origin xyz="0 0 0" rpy="0 0 0" />
                   <geometry>
-                    <mesh filename="package://talos_description/meshes/gripper/base_link_collision.STL" scale="1 1 1"/>
+                    <mesh filename="${MESH_PATH}/gripper/base_link_collision.STL" scale="1 1 1"/>
                   </geometry>
                 </collision>
               </xacro:unless>
@@ -64,7 +64,7 @@
               <visual>
                 <origin xyz="0 0 0" rpy="0 0 0" />
                 <geometry>
-                  <mesh filename="package://talos_description/meshes/gripper/gripper_motor_double.STL" scale="1 1 1"/>
+                  <mesh filename="${MESH_PATH}/gripper/gripper_motor_double.STL" scale="1 1 1"/>
                 </geometry>
               <material name="Orange"/>
               </visual>
@@ -76,7 +76,7 @@
                 <collision>
                   <origin xyz="0 0 0" rpy="0 0 0" />
                   <geometry>
-                    <mesh filename="package://talos_description/meshes/gripper/gripper_motor_double_collision.STL" scale="1 1 1"/>
+                    <mesh filename="${MESH_PATH}/gripper/gripper_motor_double_collision.STL" scale="1 1 1"/>
                   </geometry>
                 </collision>
               </xacro:unless>
@@ -99,7 +99,7 @@
               <visual>
                 <origin xyz="0 0 0" rpy="0 0 0" />
                 <geometry>
-                  <mesh filename="package://talos_description/meshes/gripper/inner_double.STL" scale="1 1 1"/>
+                  <mesh filename="${MESH_PATH}/gripper/inner_double.STL" scale="1 1 1"/>
                 </geometry>
               <material name="Orange"/>
               </visual>
@@ -111,7 +111,7 @@
                 <collision>
                   <origin xyz="0 0 0" rpy="0 0 0" />
                   <geometry>
-                    <mesh filename="package://talos_description/meshes/gripper/inner_double_collision.STL" scale="1 1 1"/>
+                    <mesh filename="${MESH_PATH}/gripper/inner_double_collision.STL" scale="1 1 1"/>
                   </geometry>
                 </collision>
               </xacro:unless>
@@ -135,7 +135,7 @@
               <visual>
                 <origin xyz="0 0 0" rpy="0 0 0" />
                 <geometry>
-                  <mesh filename="package://talos_description/meshes/gripper/fingertip.STL" scale="1 1 1"/>
+                  <mesh filename="${MESH_PATH}/gripper/fingertip.STL" scale="1 1 1"/>
                 </geometry>
               <material name="DarkGrey"/>
               </visual>
@@ -147,7 +147,7 @@
                 <collision>
                   <origin xyz="0 0 0" rpy="0 0 0" />
                   <geometry>
-                    <mesh filename="package://talos_description/meshes/gripper/fingertip_collision.STL" scale="1 1 1"/>
+                    <mesh filename="${MESH_PATH}/gripper/fingertip_collision.STL" scale="1 1 1"/>
                   </geometry>
                 </collision>
               </xacro:unless>
@@ -171,7 +171,7 @@
               <visual>
                 <origin xyz="0 0 0" rpy="0 0 0" />
                 <geometry>
-                  <mesh filename="package://talos_description/meshes/gripper/fingertip.STL" scale="1 1 1"/>
+                  <mesh filename="${MESH_PATH}/gripper/fingertip.STL" scale="1 1 1"/>
                 </geometry>
                 <material name="DarkGrey"/>
               </visual>
@@ -183,7 +183,7 @@
                 <collision>
                   <origin xyz="0 0 0" rpy="0 0 0" />
                   <geometry>
-                    <mesh filename="package://talos_description/meshes/gripper/fingertip_collision.STL" scale="1 1 1"/>
+                    <mesh filename="${MESH_PATH}/gripper/fingertip_collision.STL" scale="1 1 1"/>
                   </geometry>
                 </collision>
               </xacro:unless>
@@ -206,7 +206,7 @@
               <visual>
                 <origin xyz="0 0 0" rpy="0 0 0" />
                 <geometry>
-                  <mesh filename="package://talos_description/meshes/gripper/gripper_motor_single.STL" scale="1 1 1"/>
+                  <mesh filename="${MESH_PATH}/gripper/gripper_motor_single.STL" scale="1 1 1"/>
                 </geometry>
               <material name="Orange"/>
               </visual>
@@ -219,7 +219,7 @@
                 <collision>
                   <origin xyz="0 0 0" rpy="0 0 0" />
                   <geometry>
-                    <mesh filename="package://talos_description/meshes/gripper/gripper_motor_single_collision.STL" scale="1 1 1"/>
+                    <mesh filename="${MESH_PATH}/gripper/gripper_motor_single_collision.STL" scale="1 1 1"/>
                   </geometry>
                 </collision>
               </xacro:unless>
@@ -243,7 +243,7 @@
               <visual>
                 <origin xyz="0 0 0" rpy="0 0 0" />
                 <geometry>
-                  <mesh filename="package://talos_description/meshes/gripper/inner_single.STL" scale="1 1 1"/>
+                  <mesh filename="${MESH_PATH}/gripper/inner_single.STL" scale="1 1 1"/>
                 </geometry>
               <material name="Orange"/>
               </visual>
@@ -255,7 +255,7 @@
                 <collision>
                   <origin xyz="0 0 0" rpy="0 0 0" />
                   <geometry>
-                    <mesh filename="package://talos_description/meshes/gripper/inner_single_collision.STL" scale="1 1 1"/>
+                    <mesh filename="${MESH_PATH}/gripper/inner_single_collision.STL" scale="1 1 1"/>
                   </geometry>
                 </collision>
               </xacro:unless>
@@ -278,7 +278,7 @@
               <visual>
                 <origin xyz="0 0 0" rpy="0 0 0" />
                 <geometry>
-                  <mesh filename="package://talos_description/meshes/gripper/fingertip.STL" scale="1 1 1"/>
+                  <mesh filename="${MESH_PATH}/gripper/fingertip.STL" scale="1 1 1"/>
                 </geometry>
               <material name="DarkGrey"/>
               </visual>
@@ -290,7 +290,7 @@
                 <collision>
                   <origin xyz="0 0 0" rpy="0 0 0" />
                   <geometry>
-                  <mesh filename="package://talos_description/meshes/gripper/fingertip_collision.STL" scale="1 1 1"/>
+                  <mesh filename="${MESH_PATH}/gripper/fingertip_collision.STL" scale="1 1 1"/>
                   </geometry>
                 </collision>
               </xacro:unless>

@@ -16,7 +16,7 @@
  -->
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
   <!--File includes-->
-  <xacro:include filename="$(find talos_description)/urdf/arm/wrist.transmission.xacro" />
+  <xacro:include filename="${ROOT}/urdf/arm/wrist.transmission.xacro" />
 
   <xacro:macro name="ros2_control_wrist" params="name side joint_5_offset joint_6_offset joint_7_offset" >
     <joint name="${name}_${side}_5_joint">

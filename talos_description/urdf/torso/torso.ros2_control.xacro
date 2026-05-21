@@ -41,7 +41,7 @@
     </joint>
 
     <!-- transmissions -->
-    <xacro:include filename="$(find talos_description)/urdf/torso/torso.transmission.xacro" />
+    <xacro:include filename="${ROOT}/urdf/torso/torso.transmission.xacro" />
     <xacro:talos_torso_differential_transmission name="${name}" number1="${joint_1}" number2="${joint_2}"
                                                 act_reduction1="1.0" act_reduction2="1.0"
                                                 jnt_reduction1="1.0" jnt_reduction2="1.0" />

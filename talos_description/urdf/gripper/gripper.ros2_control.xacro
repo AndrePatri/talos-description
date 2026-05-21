@@ -60,7 +60,7 @@
                                                     actuated_joint_name="${name}_joint"
                                                     multiplier="-1"/>
    <!-- transmissions -->
-  <xacro:include filename="$(find talos_description)/urdf/gripper/gripper.transmission.xacro" />
+  <xacro:include filename="${ROOT}/urdf/gripper/gripper.transmission.xacro" />
   <xacro:gripper_transmission name="${name}" reduction="1.0" />
 
   </xacro:macro>
