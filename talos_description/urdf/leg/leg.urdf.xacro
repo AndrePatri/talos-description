@@ -174,19 +174,20 @@
         <material name="DarkGrey" />
       </visual>
 
-      <xacro:if value="$(arg use_capsule_collision)">
-        <xacro:capsule-collision e1="0.00475684 0.0387611 -0.305131" e2="0.0048036 0.0612963 -0.0132432" rad="0.14557912147210253" clen="0.29275626620252521" rpy="-0.077052 0.00015972 -6.15642e-06" mid="0.00478022 0.0500287 -0.159187" reflect="${reflect}" />
-      </xacro:if>
+      <xacro:unless value="${minimal_coll}">
+        <xacro:if value="$(arg use_capsule_collision)">
+          <xacro:capsule-collision e1="0.00475684 0.0387611 -0.305131" e2="0.0048036 0.0612963 -0.0132432" rad="0.14557912147210253" clen="0.29275626620252521" rpy="-0.077052 0.00015972 -6.15642e-06" mid="0.00478022 0.0500287 -0.159187" reflect="${reflect}" />
+        </xacro:if>
 
-      <xacro:unless value="$(arg use_capsule_collision)">
-        <collision>
-          <origin rpy="0 0 0" xyz="0 0 0"/>
-          <geometry>
-            <mesh filename="${MESH_PATH}/v2/hip_y_collision.stl" scale="1 ${reflect*1} 1"/>
-          </geometry>
-        </collision>
+        <xacro:unless value="$(arg use_capsule_collision)">
+          <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+              <mesh filename="${MESH_PATH}/v2/hip_y_collision.stl" scale="1 ${reflect*1} 1"/>
+            </geometry>
+          </collision>
+        </xacro:unless>
       </xacro:unless>
-
     </link>
 
     <joint name="leg_${prefix}_3_joint" type="revolute">
