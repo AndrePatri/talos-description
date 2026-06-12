@@ -19,6 +19,7 @@
   <xacro:arg name="multiple" default="false"/>
   <xacro:arg name="gazebo_version" default="classic"/>
   <xacro:arg name="use_capsule_collision" default="false"/>
+  <xacro:arg name="minimal_coll" default="false"/>
   <xacro:arg name="disable_gazebo_camera" default="false"/>
   <xacro:arg name="include_gazebo" default="true"/>
   <xacro:arg name="include_ros2_control" default="true"/>
@@ -101,8 +102,8 @@
                     disable_gazebo_camera="$(arg disable_gazebo_camera)"
                     head_type="$(arg head_type)"/>
 
-  <xacro:talos_arm name="arm" parent="torso_2_link" side="left" reflect="1"/>
-  <xacro:talos_arm name="arm" parent="torso_2_link" side="right" reflect="-1"/>
+  <xacro:talos_arm name="arm" parent="torso_2_link" side="left" reflect="1" minimal_coll="$(arg minimal_coll)"/>
+  <xacro:talos_arm name="arm" parent="torso_2_link" side="right" reflect="-1" minimal_coll="$(arg minimal_coll)"/>
 
   <xacro:ft_sensor name="wrist" parent="arm_right_7_link" side="right" reflect="1"  />
   <xacro:ft_sensor name="wrist" parent="arm_left_7_link"  side="left"  reflect="-1" />
@@ -111,8 +112,8 @@
     <xacro:talos_gripper name="gripper_right" parent="wrist_right_ft_tool_link" reflect="-1"/>
   </xacro:if>
 
-  <xacro:talos_leg prefix="left"  reflect="1" flexibility="$(arg flexibility)"/>
-  <xacro:talos_leg prefix="right" reflect="-1" flexibility="$(arg flexibility)"/>
+  <xacro:talos_leg prefix="left"  reflect="1" flexibility="$(arg flexibility)" minimal_coll="$(arg minimal_coll)"/>
+  <xacro:talos_leg prefix="right" reflect="-1" flexibility="$(arg flexibility)" minimal_coll="$(arg minimal_coll)"/>
 
   <xacro:talos_addons/>
   <xacro:if value="$(arg include_gazebo)">

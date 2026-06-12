@@ -29,7 +29,7 @@
   <xacro:property name="arm_eps"            value="0.02" />
 
 
-  <xacro:macro name="talos_arm" params="name parent side reflect">
+  <xacro:macro name="talos_arm" params="name parent side reflect minimal_coll:=false">
     <xacro:unless value="$(arg test)">
       <xacro:include filename="${TALOS_DESCRIPTION_CALIBRATION_ROOT}/urdf/calibration/arm_${side}.xacro" />
     </xacro:unless>
@@ -51,17 +51,19 @@
         <material name="DarkGrey" />
       </visual>
 
-      <xacro:if value="$(arg use_capsule_collision)">
-        <xacro:capsule-collision e1="-0.030119 0.141768 0.0465263" e2="-0.00429634 0.0157203 0.0513477" rad="0.076661652397679497" clen="0.12875612953621868" rpy="1.53256 0.201924 0.194397" mid="-0.0172077 0.0787443 0.048937" reflect="${reflect}" />
-      </xacro:if>
+      <xacro:unless value="${minimal_coll}">
+        <xacro:if value="$(arg use_capsule_collision)">
+          <xacro:capsule-collision e1="-0.030119 0.141768 0.0465263" e2="-0.00429634 0.0157203 0.0513477" rad="0.076661652397679497" clen="0.12875612953621868" rpy="1.53256 0.201924 0.194397" mid="-0.0172077 0.0787443 0.048937" reflect="${reflect}" />
+        </xacro:if>
 
-      <xacro:unless value="$(arg use_capsule_collision)">
-        <collision>
-          <origin xyz="0 0 0" rpy="0 0 0" />
-          <geometry>
-            <mesh filename="${MESH_PATH}/arm/arm_1_collision.STL" scale="1 ${reflect} 1"/>
-          </geometry>
-        </collision>
+        <xacro:unless value="$(arg use_capsule_collision)">
+          <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+              <mesh filename="${MESH_PATH}/arm/arm_1_collision.STL" scale="1 ${reflect} 1"/>
+            </geometry>
+          </collision>
+        </xacro:unless>
       </xacro:unless>
 
     </link>
@@ -135,16 +137,18 @@
         <material name="DarkGrey" />
       </visual>
 
-      <xacro:if value="$(arg use_capsule_collision)">
-        <xacro:capsule-collision e1="0.0012938 0.00577828 -0.203827" e2="0.0206547 0.0332832 -0.277413" rad="0.077010074599207598" clen="0.080908820017687497" rpy="-2.78389 0.241638 -1.1828" mid="0.0109743 0.0195307 -0.24062" reflect="${reflect}" />
-      </xacro:if>
-      <xacro:unless value="$(arg use_capsule_collision)">
-        <collision>
-          <origin xyz="0 0 0" rpy="0 0 0" />
-          <geometry>
-            <mesh filename="${MESH_PATH}/arm/arm_3_collision.STL" scale="1 ${reflect} 1"/>
-          </geometry>
-        </collision>
+      <xacro:unless value="${minimal_coll}">
+        <xacro:if value="$(arg use_capsule_collision)">
+          <xacro:capsule-collision e1="0.0012938 0.00577828 -0.203827" e2="0.0206547 0.0332832 -0.277413" rad="0.077010074599207598" clen="0.080908820017687497" rpy="-2.78389 0.241638 -1.1828" mid="0.0109743 0.0195307 -0.24062" reflect="${reflect}" />
+        </xacro:if>
+        <xacro:unless value="$(arg use_capsule_collision)">
+          <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+              <mesh filename="${MESH_PATH}/arm/arm_3_collision.STL" scale="1 ${reflect} 1"/>
+            </geometry>
+          </collision>
+        </xacro:unless>
       </xacro:unless>
 
     </link>
@@ -244,7 +248,7 @@
     <!--************************-->
     <!--        WRIST           -->
     <!--************************-->
-    <xacro:talos_wrist name="arm" parent="${name}_${side}_4_link" side="${side}" reflect="${reflect}" />
+    <xacro:talos_wrist name="arm" parent="${name}_${side}_4_link" side="${side}" reflect="${reflect}" minimal_coll="${minimal_coll}" />
 
   </xacro:macro>
 
