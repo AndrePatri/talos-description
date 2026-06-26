@@ -20,6 +20,11 @@
   <xacro:arg name="gazebo_version" default="classic"/>
   <xacro:arg name="use_capsule_collision" default="false"/>
   <xacro:arg name="minimal_coll" default="false"/>
+  <xacro:arg name="foot_corner_spheres" default="false"/>
+  <xacro:arg name="foot_corner_sphere_radius" default="0.005"/>
+  <xacro:arg name="foot_corner_sphere_x" default="0.103"/>
+  <xacro:arg name="foot_corner_sphere_y" default="0.063"/>
+  <xacro:arg name="foot_corner_sphere_z" default="-0.001"/>
   <xacro:arg name="disable_gazebo_camera" default="false"/>
   <xacro:arg name="include_gazebo" default="true"/>
   <xacro:arg name="include_ros2_control" default="true"/>

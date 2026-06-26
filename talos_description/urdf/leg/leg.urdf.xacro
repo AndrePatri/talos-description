@@ -309,6 +309,28 @@
 
     <link name="${prefix}_sole_link">
       <xacro:call macro="${prefix}_sole_link_inertial" />
+      <xacro:if value="$(arg foot_corner_spheres)">
+        <xacro:property name="foot_corner_radius" value="$(arg foot_corner_sphere_radius)" />
+        <xacro:property name="foot_corner_x" value="$(arg foot_corner_sphere_x)" />
+        <xacro:property name="foot_corner_y" value="$(arg foot_corner_sphere_y)" />
+        <xacro:property name="foot_corner_z" value="$(arg foot_corner_sphere_z)" />
+        <collision>
+          <origin xyz="${foot_corner_x} ${foot_corner_y} ${foot_corner_z}" rpy="0 0 0" />
+          <geometry><sphere radius="${foot_corner_radius}" /></geometry>
+        </collision>
+        <collision>
+          <origin xyz="${foot_corner_x} ${-foot_corner_y} ${foot_corner_z}" rpy="0 0 0" />
+          <geometry><sphere radius="${foot_corner_radius}" /></geometry>
+        </collision>
+        <collision>
+          <origin xyz="${-foot_corner_x} ${foot_corner_y} ${foot_corner_z}" rpy="0 0 0" />
+          <geometry><sphere radius="${foot_corner_radius}" /></geometry>
+        </collision>
+        <collision>
+          <origin xyz="${-foot_corner_x} ${-foot_corner_y} ${foot_corner_z}" rpy="0 0 0" />
+          <geometry><sphere radius="${foot_corner_radius}" /></geometry>
+        </collision>
+      </xacro:if>
     </link>
 
     <joint name="leg_${prefix}_sole_fix_joint" type="fixed">
